@@ -1,10 +1,9 @@
 var express     = require("express");
 var router      = express.Router();
-var passport    = require("passport");
 var User        = require("../models/user");
 
 //======================================================
-//LANDING, LOGIN, SIGN UP ROUTES
+//LANDING ROUTE
 //======================================================
 //show landing page
 router.get("/", function(req, res){
@@ -12,12 +11,24 @@ router.get("/", function(req, res){
 });
 
 //=========================================================
-//AUTH ROUTES FOR LOGOUT
+//POST ROUTE FOR MAKING PREDICTION
 //=========================================================
-//logout route
-router.get("/logout", function(req, res){
-    req.logout();
-    res.redirect("/");
-});
+router.post("/predict", function(req, res){
+    //Create post 
+    User.create(req.body, function(err, user){
+        if(err || !(req.body.vote == ("Yes" || "No")) || req.body.btcAddress == ""){
+            console.log(err);
+        } else {
+            user.save(function(err, savedPost){
+                if (err){
+                    console.log(err);
+                } else {
+                    res.send({message: "Thanks. Your prediction has been submitted!"});
+                }
+            });
+        }
+    });
+});    
+
 
 module.exports = router;

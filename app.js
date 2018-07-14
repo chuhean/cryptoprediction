@@ -24,7 +24,7 @@ var indexRoutes     = require("./routes/index");
 //======================================================
 //CONNECT APPJS TO MONGODB DATABASE
 //======================================================
-mongoose.connect("mongodb://chuhean:justpredictbtc123@ds237641.mlab.com:37641/btcprediction");
+mongoose.connect("mongodb://chuhean:justpredictbtc123@ds237641.mlab.com:37641/btcprediction", {useNewUrlParser: true});
 
 //======================================================
 //UTILIZE IMPORTED FUNCTIONS
@@ -36,27 +36,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(helmet());
-
-//======================================================
-//PASSPORTJS CONFIGURATION
-//======================================================
-app.use(require("express-session")({
-    secret:"This is the website of the 2018 world cup prediction platform.",
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    }, User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
-    next();
-});
 
 //======================================================
 //UTILIZING ROUTES

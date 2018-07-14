@@ -9,27 +9,74 @@
         
         <!--Bootstrap StyleSheet-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        
+        <!--CSS StyelSheet-->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <!--Favicon-->
+        <link rel="icon" href="/favicon.ico?" type="image/icon">
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <!--Title-->
-        <title>title</title>
+        <title>Bitcoin Prediction</title>
     </head>
     
     <!--HTML Body-->
-    <body>
-        
-        
-        <!-- Icon button -->
-        <button class="mdl-button mdl-js-button mdl-button--icon">
-          <i class="material-icons">mood</i>
-        </button>
-    
-    
+    <body class="body">
+
+        <!-- Bootstrap Container -->
+        <div class="container">
+            
+            <h1 class="text-white text-center">Will Bitcoin Reach $10000 by end of 2018?</h1>
+            
+            <!--Form Row-->
+            <div class="row">
+                
+                <div class="col-8 mx-auto" id="formColumn">
+
+                    <!--Form for posting prediction-->
+                    <form action="/predict" id="homePagePostForm">
+            
+                        <div class="text-center radio">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline1" name="btcPrediction" class="custom-control-input" value="Yes" required>
+                                <label class="custom-control-label text-success" for="customRadioInline1"><i class="fas fa-arrow-up"></i> Yes</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline2" name="btcPrediction" class="custom-control-input" value="No" required>
+                                <label class="custom-control-label text-danger" for="customRadioInline2"><i class="fas fa-arrow-down"></i> No</label>
+                            </div>
+                        </div>
+                        
+                        
+                        <div>
+                            <label class="text-white text">Your Bitcoin Address</label>
+                            <small id="btcAddressHelpBlock" class="form-text text-white text">
+                                <em>You will receive $50 worth of BTC if your prediction is correct.</em>
+                            </small>
+                            <input type="text" id="btcAddress" class="form-control" placeholder="Bitcoin Address" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid bitcoin address.
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <input id="homePagePostInputButton" type="submit" value="Submit!" class="btn btn-outline-light btn-lg button">
+                        </div>
+                        
+                    </form>  
+                    
+                </div>    
+
+            </div>
+
+        </div>
     
         <!-- Bootstrap JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+   
+        <!-- Javascript File-->
+        <script src="/javascript/main.js"></script>
+        
     </body>
 </html>
