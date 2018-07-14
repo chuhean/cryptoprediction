@@ -5,7 +5,6 @@ var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
     mongoose        = require("mongoose"),
-    flash           = require("connect-flash"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
     methodOverride  = require("method-override"),
@@ -15,23 +14,17 @@ var express         = require("express"),
 //======================================================
 //IMPORT MONGOOSE MODEL
 //======================================================
-var User            = require("./models/user"),
-    Post            = require("./models/post"),
-    Comment         = require("./models/comment"),
-    Message         = require("./models/message");
+var User            = require("./models/user");
 
 //======================================================
 //IMPORT ROUTES
 //======================================================
 var indexRoutes     = require("./routes/index");
-var mainRoutes      = require("./routes/main");
-var profileRoutes   = require("./routes/profile");
-var settingsRoutes  = require("./routes/settings");
 
 //======================================================
 //CONNECT APPJS TO MONGODB DATABASE
 //======================================================
-mongoose.connect("mongodb://localhost/socially");
+mongoose.connect("mongodb://chuhean:justpredictbtc123@ds237641.mlab.com:37641/btcprediction");
 
 //======================================================
 //UTILIZE IMPORTED FUNCTIONS
@@ -48,7 +41,7 @@ app.use(helmet());
 //PASSPORTJS CONFIGURATION
 //======================================================
 app.use(require("express-session")({
-    secret:"This is the website of the social media platform Socially.",
+    secret:"This is the website of the 2018 world cup prediction platform.",
     resave: false,
     saveUninitialized: false
 }));
@@ -62,8 +55,6 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
-    // res.locals.error = req.flash("error");
-    // res.locals.success = req.flash("success");
     next();
 });
 
@@ -71,9 +62,9 @@ app.use(function(req, res, next){
 //UTILIZING ROUTES
 //======================================================
 app.use("/", indexRoutes);
-app.use("/main", mainRoutes);
-app.use("/profile", profileRoutes);
-app.use("/settings", settingsRoutes);
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!");
+});
 
 //======================================================
 //INITIATE NODEJS TO START LISTENING REQUEST
