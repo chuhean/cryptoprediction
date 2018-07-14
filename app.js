@@ -24,13 +24,7 @@ var indexRoutes     = require("./routes/index");
 //======================================================
 //CONNECT APPJS TO MONGODB DATABASE
 //======================================================
-// Development MongoDB
-// mongoose.connect("mongodb://chuhean:justpredictbtc123@ds237641.mlab.com:37641/btcprediction", {useNewUrlParser: true});
-
-var mongoPassword = 'justpredictbtc123';
-var config = JSON.parse(process.env.APP_CONFIG);
-var MongoClient = require('mongodb').MongoClient;
-mongoose.connect("mongodb://" + config.mongo.user + ":" + encodeURIComponent(mongoPassword) + "@" + config.mongo.hostString, {useNewUrlParser: true});
+mongoose.connect("mongodb://chuhean:justpredictbtc123@ds237641.mlab.com:37641/btcprediction", {useNewUrlParser: true});
 
 //======================================================
 //UTILIZE IMPORTED FUNCTIONS
