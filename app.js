@@ -42,7 +42,7 @@ app.use(helmet());
 //======================================================
 app.use("/", indexRoutes);
 app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!");
+  res.status(404).send("Sorry, it seems that Satoshi doesn't understand what you want.");
 });
 
 //======================================================
