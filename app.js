@@ -73,5 +73,5 @@ app.use(function (req, res, next) {
 //======================================================
 //INITIATE NODEJS TO START LISTENING REQUEST
 //======================================================
-app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.IP);
 
