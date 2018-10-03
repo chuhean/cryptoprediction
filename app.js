@@ -24,7 +24,7 @@ var indexRoutes     = require("./routes/index");
 //======================================================
 //CONNECT APPJS TO MONGODB DATABASE
 //======================================================
-mongoose.connect("mongodb://chuhean:justpredictbtc123@ds237641.mlab.com:37641/btcprediction", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/socially", {useNewUrlParser: true});
 
 //======================================================
 //UTILIZE IMPORTED FUNCTIONS
