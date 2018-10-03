@@ -1,1 +1,1 @@
-A BTC Prediction website for people to vote whether BTC will go up or down in price. 
+A Bitcoin Prediction website for people to vote whether Bitcoin will go up or down in the future.
